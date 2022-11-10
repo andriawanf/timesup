@@ -1,0 +1,312 @@
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Navbar */
+.menu {
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 100;
+
+    width: 50px;
+    height: 50px;
+    background: #010101;
+
+    box-shadow: 0 0 0 0 #f8f8f8, 0 0 0 0 #f8f8f8;
+    /*  transform: scale(0.5, 0.5);*/
+
+    border-radius: 100px;
+    transition: background 0.5s ease-in-out, border-radius 0.5s ease-in-out,
+        box-shadow 0.5s ease-in-out;
+
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hamburger {
+    position: relative;
+
+    width: 30px;
+    height: 2.5px;
+    background: #f8f8f8;
+    border-radius: 5px;
+
+    display: block;
+
+    transform-origin: center;
+    transition: 0.5s ease-in-out;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background: inherit;
+    border-radius: 5px;
+
+    position: absolute;
+
+    display: block;
+
+    transition: 0.5s ease-in-out;
+}
+.hamburger::before {
+    top: -10px;
+}
+.hamburger::after {
+    top: 10px;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+input:checked + .menu {
+    background: #010101;
+    box-shadow: 0 0 0 100vw #010101, 0 0 0 100vh #010101;
+
+    border-radius: 100px;
+}
+
+input:checked + .menu .hamburger {
+    transform: rotate(45deg);
+}
+input:checked + .menu .hamburger::before,
+input:checked + .menu .hamburger::after {
+    transform: rotate(90deg);
+    top: 0;
+}
+
+input:checked:hover + .menu .hamburger {
+    transform: rotate(225deg);
+    top: 0;
+}
+input:checked:hover + .menu .hamburger::before,
+input:checked:hover + .menu .hamburger::after {
+    transform: rotate(275deg);
+    top: 0;
+}
+
+input:checked + .menu + nav {
+    /*  display: block !important;*/
+    opacity: 1;
+}
+input:checked + .menu + nav li {
+    pointer-events: auto;
+    /* background: rgba(0, 0, 0, 0.2);*/
+}
+
+/**the inner menu**/
+nav {
+    /* display: none !important;*/
+    opacity: 0;
+
+    pointer-events: none;
+
+    min-width: 100vh;
+    width: 100vh;
+    padding: 2rem;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 200;
+
+    transition: 0.4s 0s ease-in-out, opacity 1s 0s ease-in-out;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    color: #fff;
+}
+nav > * {
+    width: 100%;
+    margin-bottom: 2.5rem;
+}
+
+/*second section nav --> ul no name*/
+nav ul:first-of-type {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+nav ul li {
+    line-height: 1.2;
+    margin-bottom: 5rem;
+
+    display: flex;
+    justify-content: center;
+}
+
+nav a {
+    padding: 20px 20px 20px;
+    position: relative;
+    z-index: 400;
+
+    transition: color 0.25s ease-in-out, background-color 0.5s ease-in-out;
+}
+
+nav a:hover {
+    color: #f8f8f8;
+    z-index: 400;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10%;
+    transform: scaleY(0);
+    transform-origin: bottom center;
+    background: #fff;
+    border-radius: 25px;
+    z-index: -1;
+    transition: transform 0.6s;
+}
+
+nav a:hover::after {
+    transform: scaleY(1);
+}
+
+/*third section nav --> ul class="row_ul"*/
+
+.row_ul {
+    display: flex;
+    justify-contain: space-around;
+    align-items: center;
+
+    min-width: 340px;
+    width: 100%;
+    height: 100px;
+
+    border-top: 1px solid #80bece;
+    border-bottom: 1px solid #80bece;
+}
+.row_ul li * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.row_ul a {
+    color: #80bece;
+    font-size: 1rem;
+    width: 180px;
+
+    padding: 20px 10px;
+}
+
+.row_ul a:after {
+    background-color: #80bece;
+}
+
+
+/* Circle Logo Animation */
+.ellipse-container {
+    width: 40rem;
+    height: 40rem;
+    border-radius: 50%;
+    margin: 0 auto;
+    position: relative;
+    top: 0;
+}
+
+.ellipse-container .logo-times {
+    position: relative;
+    top: 11rem;
+    left: -11.5rem;
+    text-transform: uppercase;
+    letter-spacing: 5rem;
+}
+
+.ellipse-container .logo-up {
+    position: relative;
+    top: 13rem;
+    left: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 5rem;
+}
+
+.ellipse {
+    border-radius: 50%;
+    position: absolute;
+    box-sizing: border-box;
+    top: 0;
+    border-style: solid;
+}
+
+.ellipse__outer--thin {
+    width: 100%;
+    height: 100%;
+    border-width: 1px;
+    border-color: rgba(255, 255, 255, 0.5);
+    animation: ellipseOrbit 5s linear infinite;
+}
+
+.ellipse__outer--thick {
+    width: 100%;
+    height: 100%;
+    border-color: white transparent;
+    border-width: 3px;
+    transform: rotate(-45deg);
+    animation: ellipseRotate 5s linear infinite;
+}
+
+.ellipse__orbit {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-width: 2px;
+    border-color: white;
+    top: 2.5rem;
+    right: 6.75rem;
+}
+
+.ellipse__orbit:before {
+    content: "";
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 50%;
+    position: absolute;
+    display: inline-block;
+    background-color: white;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@keyframes ellipseRotate {
+    0% {
+        transform: rotate(-45deg);
+    }
+    100% {
+        transform: rotate(-405deg);
+    }
+}
+
+@keyframes ellipseOrbit {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/*  */
