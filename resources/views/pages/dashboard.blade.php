@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Dashboard</title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -17,6 +17,7 @@
 </head>
 
 <body class=" bg-MainBlackColor">
+    {{-- First Section --}}
     <div class="px-9 pt-9 w-full h-screen">
         <div class="max-w-full w-full h-screen relative mx-auto">
             {{-- Navbar --}}
@@ -74,13 +75,18 @@
                     sit amet consectetur adipisicing elit. Sequi debitis dolore accusantium omnis velit corporis
                     necessitatibus totam explicabo quasi obcaecati?"</p>
             </div>
+
+            <a href="#">
+                <div href="#" class="relative w-full py-4 bg-MainWhiteColor rounded-full mt-12 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-95 hover:bg-[#dfdfdf] duration-300 shadow-lg shadow-[#4a4a4a]">
+                    <button class="text-center w-full font-syne font-bold text-xl">Let's Started</button>
+                </div>
+            </a>
         </div>
     </div>
 
     {{-- Second Section --}}
-    <section class="w-full min-w-full h-full mt-24">
-        <h1 class="w-full text-center text-5xl font-syne font-semibold text-MainWhiteColor text-animation">Products
-            We Provide</h1>
+    <section class="w-full min-w-full h-full mt-40">
+        <h1 class="w-full text-center text-5xl font-syne font-semibold text-MainWhiteColor text-animation">Our Featured Products</h1>
         <ul class="cards my-[5rem] mx-[8rem]">
             <li>
                 <a href="" class="card">
@@ -158,6 +164,15 @@
             }
         </script>
     </section>
+
+    {{-- <section class="px-9 w-full min-w-full h-screen mt-24 relative">
+        <div class="w-full grid grid-cols-12 justify-center items-center">
+            <div class="relative col-span-6 w-full">
+
+            </div>
+            <div class="relative col-span-6 w-full"></div>
+        </div>
+    </section> --}}
 
     {{-- Third Section --}}
     <section>
