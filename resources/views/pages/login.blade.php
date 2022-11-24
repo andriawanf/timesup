@@ -18,7 +18,7 @@
 
 <body class=" bg-MainBlackColor">
     <div class="p-5 w-full h-screen">
-        <div class="border h-full rounded-3xl p-3 grid grid-cols-12">
+        <div class="border h-full rounded-3xl p-3 md:grid md:grid-cols-12 sm:flex sm:flex-col">
             <div class="col-span-6 w-full h-full bg-MainWhiteColor rounded-2xl px-20 py-10">
                 <div class="px-12">
                     <h1 class="font-syne font-bold text-center text-3xl">Welcome Back Again!</h1>
@@ -65,13 +65,47 @@
                     </form>
                 </div>
                 <div class="mt-10">
-                    <button class="mb-6 px-3 py-2 bg-MainBlackColor w-full rounded-xl font-dmSans font-semibold text-lg text-MainWhiteColor">Login</button>
-                    <h1 class="text-center font-dmSans font-medium text-base text-gray-500 ">Don't have an account? <span class="text-MainBlackColor"><a href="#">Register here!</a></span> </h1>
+                    <button
+                        class="mb-6 px-3 py-2 bg-MainBlackColor w-full rounded-xl font-dmSans font-semibold text-lg text-MainWhiteColor">Login</button>
+                    <h1 class="text-center font-dmSans font-medium text-base text-gray-500 ">Don't have an account?
+                        <span class="text-MainBlackColor"><a href="#">Register here!</a></span> </h1>
+                </div>
+            </div>
+            <div class="col-span-6 w-full h-full px-20 py-10">
+                <div class="relative my-8">
+                    <h1 class="w-full text-center font-syne font-semibold text-white text-4xl leading-relaxed mb-10">"The time is always right <br> to do what is right"</h1>
+                    <div class="clock w-96 h-96 mx-auto">
+                        <div class="hour"></div>
+                        <div class="min"></div>
+                        <div class="sec"></div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
+    <script>
+        const deg = 6;
+        const hour = document.querySelector(".hour");
+        const min = document.querySelector(".min");
+        const sec = document.querySelector(".sec");
+
+        const setClock = () => {
+            let day = new Date();
+            let hh = day.getHours() * 30;
+            let mm = day.getMinutes() * deg;
+            let ss = day.getSeconds() * deg;
+
+            hour.style.transform = `rotateZ(${hh + mm / 12}deg)`;
+            min.style.transform = `rotateZ(${mm}deg)`;
+            sec.style.transform = `rotateZ(${ss}deg)`;
+        };
+
+        // first time
+        setClock();
+        // Update every 1000 ms
+        setInterval(setClock, 1000);
+    </script>
     @livewireStyles
 </body>
 

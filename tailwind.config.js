@@ -17,6 +17,12 @@ module.exports = {
         SecondWhiteColor: '#F8F8F8',
         MainWhiteColor: '#FFFFFF',
       },
+      screens: {
+        sm: '480px',
+        md: '768px',
+        lg: '976px',
+        xl: '1440px',
+      },
     },
   },
   plugins: [],
