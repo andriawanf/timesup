@@ -41,6 +41,15 @@
                             <li>
                                 <h1 class="text-6xl font-syne font-bold"><a href="#">About</a></h1>
                             </li>
+                            @if (Auth::check())
+                                <li>
+                                    <h1 class="text-6xl font-syne font-bold"><a href="/auth/logout">Logout</a></h1>
+                                </li>
+                            @else
+                                <li>
+                                    <h1 class="text-6xl font-syne font-bold"><a href="/auth">Login</a></h1>
+                                </li>
+                            @endif
                         </ul>
                     </nav>
                 </label>
@@ -48,7 +57,11 @@
                     <i class="bx bxs-category text-MainBlackColor bx-sm bg-MainWhiteColor p-3 rounded-full cursor-pointer"></i>
                 </div> --}}
                 <div class="float-left px-4 py-3 inline-flex border rounded-full">
-                    <i class="bx bxs-user text-MainWhiteColor bx-sm mr-8"></i>
+                    <i class="bx bxs-user text-MainWhiteColor bx-sm mr-8 flex ">
+                        @if ( Auth::check() )
+                        <h1 class="text-white text-base ml-2 font-dmSans">{{ Auth::user()->name }}</h1>
+                    @endif
+                    </i>
                     <i class="bx bxs-bell text-SecondWhiteColor bx-sm"></i>
                 </div>
             </div>
@@ -77,7 +90,8 @@
             </div>
 
             <a href="#">
-                <div href="#" class="relative w-full py-4 bg-MainWhiteColor rounded-full mt-12 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-95 hover:bg-[#dfdfdf] duration-300 shadow-lg shadow-[#4a4a4a]">
+                <div href="#"
+                    class="relative w-full py-4 bg-MainWhiteColor rounded-full mt-12 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-95 hover:bg-[#dfdfdf] duration-300 shadow-lg shadow-[#4a4a4a]">
                     <button class="text-center w-full font-syne font-bold text-xl">Let's Started</button>
                 </div>
             </a>
@@ -86,7 +100,8 @@
 
     {{-- Second Section --}}
     <section class="w-full min-w-full h-full mt-40">
-        <h1 class="w-full text-center text-5xl font-syne font-semibold text-MainWhiteColor text-animation">Our Featured Products</h1>
+        <h1 class="w-full text-center text-5xl font-syne font-semibold text-MainWhiteColor text-animation">Our Featured
+            Products</h1>
         <ul class="cards my-[5rem] mx-[8rem]">
             <li>
                 <a href="" class="card">
