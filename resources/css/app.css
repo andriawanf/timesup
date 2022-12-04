@@ -524,10 +524,10 @@ nav a:hover::after {
     --active-indicator-width: 112px;
     --icon-width: 26px;
     --icon-margin-right: 8px;
-    --menu-padding-horizontal: 29px;
-    --menu-padding-vertical: 20px;
+    --menu-padding-horizontal: 24px;
+    --menu-padding-vertical: 16px;
     --active-indicator-extra-length: 16px; /* We want the indicator to be longer than the actual buttons themselves, this length is added to both sides of the indicator */
-    --space-between-icons: 50px;
+    --space-between-icons: 36px;
 }
 
 @media (max-width: 600px) {
@@ -551,13 +551,13 @@ nav a:hover::after {
     margin-left: calc(
         var(--menu-padding-horizontal) - var(--active-indicator-extra-length)
     );
-    left: 0;
+    /* left: 0; */
     transform: translateY(-50%);
     width: calc(
         var(--active-indicator-width) + var(--active-indicator-extra-length) * 2
     );
     height: calc(100% - var(--menu-padding-vertical));
-    background: white;
+    background: transparent;
     z-index: 10;
     border-radius: var(--active-indicator-width);
     transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
@@ -591,7 +591,7 @@ nav a:hover::after {
 }
 
 .active .icon, ion-icon path {
-    color: #000;
+    color: #fff;
 }
 
 .text {
@@ -613,7 +613,7 @@ nav a:hover::after {
     align-items: center;
     font-size: 15px;
     font-weight: bold;
-    color: #000;
+    color: #fff;
     padding-left: calc(var(--icon-width) + var(--icon-margin-right));
     transition: opacity 0s;
 }

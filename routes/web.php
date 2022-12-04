@@ -26,6 +26,11 @@ Route::get('/todo', function () {
     return view('pages.homepage-todo');
 });
 
+Route::get('/to-do-list', function () {
+    return view('pages.todo-list');
+});
+
+
 Route::get('/auth', [PenggunaController::class, 'index']);
 Route::post('/auth/login', [PenggunaController::class, 'login']);
 Route::get('/auth/logout', [PenggunaController::class, 'logout']);

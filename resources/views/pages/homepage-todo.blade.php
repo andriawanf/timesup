@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>To-Do List</title>
+    <title>Dashboard To-Do</title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
@@ -13,9 +13,6 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <style>
         .button-nav {
@@ -36,9 +33,9 @@
 </head>
 
 <body class="bg-MainBlackColor">
-    <div class="flex justify-between items-center px-9 py-6">
+    <div class="flex justify-between items-center px-9 py-6" id="tab-buttons">
         <div>
-            <a href="#">
+            <a href="javascript:void(0)" onclick="changeTab(event, 0)">
                 <h1 class="font-syne font-extrabold text-3xl text-white">TU</h1>
             </a>
         </div>
@@ -49,12 +46,12 @@
                     <span class="text" data-title="Dashboard">Dashboard</span>
                 </button>
             </div>
-            <div class="nav__item">
+            <a href="/to-do-list" class="nav__item">
                 <button class="button-nav">
                     <ion-icon name="create" class="icon"></ion-icon>
-                    <span class="text" data-title="To-Do">To-Do</span>
+                    <span class="text" data-title="To-Do List">To-Do</span>
                 </button>
-            </div>
+            </a>
             <div class="nav__item">
                 <button class="button-nav">
                     <ion-icon name="document-text" class="icon"></ion-icon>
@@ -64,7 +61,7 @@
             <div class="nav__item">
                 <button class="button-nav">
                     <ion-icon name="calendar-number" class="icon"></ion-icon>
-                    <span class="text" data-title="Calender">Calender</span>
+                    <span class="text" data-title="Calendar">Calendar</span>
                 </button>
             </div>
             <div class="nav__active-indicator"></div>
@@ -88,7 +85,7 @@
         </div>
     </div>
 
-    <main class="px-9 translate-y-10">
+    <main class="px-9 translate-y-4">
         <div id="div1" class="text-white font-syne font-bold text-8xl text-center w-full">
             <p id="date" class="text-4xl ml-4"></p>
             <p id="time"></p>
@@ -157,65 +154,7 @@
     <!-- Add online jQuery -->
     <script src="https://code.jquery.com/jquery-3.1.0.min.js"
         integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
-    <script>
-        // ---------
-        // Variables
-        // ---------
-
-        const nav = document.querySelector(".nav");
-        const navActiveIndicator = document.querySelector(".nav__active-indicator");
-        const buttons = document.querySelectorAll("button");
-        let activeButton = document.querySelector(".active");
-
-        // ---
-        // App
-        // ---
-
-        setIndexKey(buttons);
-
-        buttons.forEach(button => {
-            button.addEventListener("click", buttonClick);
-        });
-
-        // ---------
-        // Functions
-        // ---------
-
-        function setIndexKey(arrayOfElements) {
-            arrayOfElements.forEach((element, index) => {
-                element.index = index;
-            });
-        }
-
-        function buttonClick() {
-            // Position the text so that it appears to not move with the button width growth
-            if (this.index > activeButton.index) {
-                nav.classList.remove("slide-right");
-                nav.classList.add("slide-left");
-            } else {
-                nav.classList.remove("slide-left");
-                nav.classList.add("slide-right");
-            }
-
-            // Animate the active indicator position
-            const iconWidth = parseInt(
-                getComputedStyle(document.documentElement).getPropertyValue("--icon-width")
-            );
-            const spaceBetweenIcons = parseInt(
-                getComputedStyle(document.documentElement).getPropertyValue(
-                    "--space-between-icons"
-                )
-            );
-            navActiveIndicator.style.transform = `translateX(${(iconWidth +
-    spaceBetweenIcons) *
-    this.index}px) translateY(-50%)`;
-
-            // Update the active button
-            if (activeButton) activeButton.classList.remove("active");
-            this.classList.add("active");
-            activeButton = this;
-        }
-    </script>
+    
     @livewireStyles
 </body>
 
