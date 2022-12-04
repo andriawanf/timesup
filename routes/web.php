@@ -22,8 +22,8 @@ Route::get('/login', function () {
     return view('auth.login');
 });
 
-Route::get('/regis', function () {
-    return view('auth.register');
+Route::get('/todo', function () {
+    return view('pages.homepage-todo');
 });
 
 Route::get('/auth', [PenggunaController::class, 'index']);
@@ -31,6 +31,8 @@ Route::post('/auth/login', [PenggunaController::class, 'login']);
 Route::get('/auth/logout', [PenggunaController::class, 'logout']);
 Route::get('/register', [PenggunaController::class, 'register']);
 Route::post('/auth/create', [PenggunaController::class, 'create']);
+
+
 // Route::get('/', function () {
 //     return view('pages.dashboard', ['title' => 'Home']);
 // })->name('home');

@@ -89,9 +89,8 @@
                     necessitatibus totam explicabo quasi obcaecati?"</p>
             </div>
 
-            <a href="#">
-                <div href="#"
-                    class="relative w-full py-4 bg-MainWhiteColor rounded-full mt-12 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-95 hover:bg-[#dfdfdf] duration-300 shadow-lg shadow-[#4a4a4a]">
+            <a href="/todo">
+                <div class="relative w-full py-4 bg-MainWhiteColor rounded-full mt-12 transition ease-in-out delay-150 hover:-translate-y-1 hover:scale-95 hover:bg-[#dfdfdf] duration-300 shadow-lg shadow-[#4a4a4a]">
                     <button class="text-center w-full font-syne font-bold text-xl">Let's Started</button>
                 </div>
             </a>

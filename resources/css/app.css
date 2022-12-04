@@ -441,80 +441,193 @@ nav a:hover::after {
     position: absolute;
     width: 100%;
     display: inline-block;
-    font-family: 'Syne', sans-serif;
+    font-family: "Syne", sans-serif;
     font-size: 80pt;
-    color: #F8F8F8;
+    color: #f8f8f8;
     text-align: center;
     user-select: none;
 }
 
 .clock {
-	min-height: 18em;
-	min-width: 18em;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background-color: #010101;
-	background-image: url("https://imvpn22.github.io/analog-clock/clock.png");
-	background-position: center center;
-	background-size: cover;
-	border-radius: 50%;
-	border: 4px solid #010101;
-	box-shadow: 0 -15px 15px rgba(255, 255, 255, 0.05),
-		inset 0 -15px 15px rgba(255, 255, 255, 0.05), 0 15px 15px rgba(0, 0, 0, 0.3),
-		inset 0 15px 15px rgba(0, 0, 0, 0.3);
-	transition: all ease 0.2s;
+    min-height: 18em;
+    min-width: 18em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #010101;
+    background-image: url("https://imvpn22.github.io/analog-clock/clock.png");
+    background-position: center center;
+    background-size: cover;
+    border-radius: 50%;
+    border: 4px solid #010101;
+    box-shadow: 0 -15px 15px rgba(255, 255, 255, 0.05),
+        inset 0 -15px 15px rgba(255, 255, 255, 0.05),
+        0 15px 15px rgba(0, 0, 0, 0.3), inset 0 15px 15px rgba(0, 0, 0, 0.3);
+    transition: all ease 0.2s;
 }
 .clock:before {
-	content: "";
-	height: 0.75rem;
-	width: 0.75rem;
-	background-color: #fff;
-	border: 2px solid #010101;
-	position: absolute;
-	border-radius: 50%;
-	z-index: 1000;
-	transition: all ease 0.2s;
+    content: "";
+    height: 0.75rem;
+    width: 0.75rem;
+    background-color: #fff;
+    border: 2px solid #010101;
+    position: absolute;
+    border-radius: 50%;
+    z-index: 1000;
+    transition: all ease 0.2s;
 }
 .hour,
 .min,
 .sec {
-	position: absolute;
-	display: flex;
-	justify-content: center;
-	border-radius: 50%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    border-radius: 50%;
 }
 .hour {
-	height: 10em;
-	width: 10em;
+    height: 10em;
+    width: 10em;
 }
 .hour:before {
-	content: "";
-	position: absolute;
-	height: 50%;
-	width: 6px;
-	background-color: #fff;
-	border-radius: 6px;
+    content: "";
+    position: absolute;
+    height: 50%;
+    width: 6px;
+    background-color: #fff;
+    border-radius: 6px;
 }
 .min {
-	height: 12em;
-	width: 12em;
+    height: 12em;
+    width: 12em;
 }
 .min:before {
-	content: "";
-	height: 50%;
-	width: 4px;
-	background-color: #fff;
-	border-radius: 4px;
+    content: "";
+    height: 50%;
+    width: 4px;
+    background-color: #fff;
+    border-radius: 4px;
 }
 .sec {
-	height: 13em;
-	width: 13em;
+    height: 13em;
+    width: 13em;
 }
 .sec:before {
-	content: "";
-	height: 60%;
-	width: 2px;
-	background-color: #f00;
-	border-radius: 2px;
+    content: "";
+    height: 60%;
+    width: 2px;
+    background-color: #f00;
+    border-radius: 2px;
+}
+
+/*  */
+:root {
+    --active-indicator-width: 112px;
+    --icon-width: 26px;
+    --icon-margin-right: 8px;
+    --menu-padding-horizontal: 29px;
+    --menu-padding-vertical: 20px;
+    --active-indicator-extra-length: 16px; /* We want the indicator to be longer than the actual buttons themselves, this length is added to both sides of the indicator */
+    --space-between-icons: 50px;
+}
+
+@media (max-width: 600px) {
+    :root {
+        --active-indicator-width: 80px;
+        --icon-margin-right: 7px;
+        --menu-padding-horizontal: 24px;
+    }
+}
+
+.nav {
+    padding: var(--menu-padding-vertical) var(--menu-padding-horizontal);
+    display: flex;
+    border-radius: 2.5rem;
+    position: relative;
+}
+
+.nav__active-indicator {
+    position: absolute;
+    top: 50%;
+    margin-left: calc(
+        var(--menu-padding-horizontal) - var(--active-indicator-extra-length)
+    );
+    left: 0;
+    transform: translateY(-50%);
+    width: calc(
+        var(--active-indicator-width) + var(--active-indicator-extra-length) * 2
+    );
+    height: calc(100% - var(--menu-padding-vertical));
+    background: white;
+    z-index: 10;
+    border-radius: var(--active-indicator-width);
+    transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.nav__item {
+    margin-left: var(--space-between-icons);
+    position: relative;
+    z-index: 20;
+}
+
+.nav__item:first-child {
+    margin-left: 0;
+}
+
+.active {
+    width: var(--active-indicator-width);
+}
+
+.icon {
+    display: block;
+    margin-right: var(--icon-margin-right);
+    flex-shrink: 0;
+    width: var(--icon-width);
+    height: var(--icon-width);
+}
+
+.icon, ion-icon path {
+    color: #a1a1a1;
+    transition: fill 0.2s;
+}
+
+.active .icon, ion-icon path {
+    color: #000;
+}
+
+.text {
+    display: block;
+    color: rgba(0, 0, 0, 0);
+    pointer-events: none;
+    font-size: 0;
+}
+
+.text:after {
+    content: attr(data-title);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: var(--active-indicator-width);
+    height: 100%;
+    opacity: 0;
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    font-weight: bold;
+    color: #000;
+    padding-left: calc(var(--icon-width) + var(--icon-margin-right));
+    transition: opacity 0s;
+}
+
+.slide-right .text:after {
+    left: 0;
+    right: auto;
+}
+.slide-left .text:after {
+    right: 0;
+    left: auto;
+}
+
+.active .text:after {
+    opacity: 1;
+    transition: opacity 0.4s;
 }
