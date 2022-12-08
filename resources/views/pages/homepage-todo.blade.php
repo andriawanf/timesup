@@ -111,7 +111,7 @@
                     @endforeach
                 </div>
             </div>
-            <div class="card w-full border rounded-[3rem] px-6 py-4">
+            <div class="card w-full border rounded-[3rem] px-6 py-4 max-h-full h-40">
                 <div class="flex w-full justify-between items-center">
                     <label class="text-white font-syne font-semibold text-2xl">Notes</label>
                     <a href="#">

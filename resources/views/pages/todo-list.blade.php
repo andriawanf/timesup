@@ -147,7 +147,7 @@
                 </div>
             </div>
             <button type="submit"
-                class="w-full mt-6 py-2.5 bg-transparent text-xl text-white font-syne font-semibold border rounded-full hover:bg-white hover:text-MainBlackColor transition duration-300 ease-out">Create
+                class="w-full min-w-full mt-6 py-2.5 bg-transparent text-xl text-white font-syne font-semibold border rounded-full hover:bg-white hover:text-MainBlackColor transition duration-300 ease-out">Create
                 Task</button>
         </form>
         <div class="my-9">
