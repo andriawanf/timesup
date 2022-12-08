@@ -585,12 +585,14 @@ nav a:hover::after {
     height: var(--icon-width);
 }
 
-.icon, ion-icon path {
+.icon,
+ion-icon path {
     color: #a1a1a1;
     transition: fill 0.2s;
 }
 
-.active .icon, ion-icon path {
+.active .icon,
+ion-icon path {
     color: #fff;
 }
 
@@ -630,4 +632,26 @@ nav a:hover::after {
 .active .text:after {
     opacity: 1;
     transition: opacity 0.4s;
+}
+
+/* Date Picker */
+:root {
+    /* change background color for .container__months */
+    --litepicker-container-months-color-bg: #fff !important;
+    --litepicker-month-header-color: #010101 !important;
+    --litepicker-button-prev-month-color: #a1a1a1 !important;
+    --litepicker-button-next-month-color: #a1a1a1 !important;
+    --litepicker-button-prev-month-color-hover: #010101 !important;
+    --litepicker-button-next-month-color-hover: #010101 !important;
+    --litepicker-month-weekday-color: #a1a1a1 !important;
+    --litepicker-month-week-number-color: #a1a1a1 !important;
+    --litepicker-day-color: #010101 !important;
+    --litepicker-day-color-hover: #010101 !important;
+    --litepicker-is-today-color: #f44336 !important;
+    --litepicker-is-in-range-color: #a1a1a1 !important;
+    --litepicker-is-locked-color: #9e9e9e !important;
+    --litepicker-is-start-color: #fff !important;
+    --litepicker-is-start-color-bg: #010101 !important;
+    --litepicker-is-end-color: #fff !important;
+    --litepicker-is-end-color-bg: #010101 !important;
 }

@@ -46,7 +46,7 @@
                     <span class="text" data-title="Dashboard">Dashboard</span>
                 </button>
             </div>
-            <a href="/to-do-list" class="nav__item">
+            <a href="/todo-list" class="nav__item">
                 <button class="button-nav">
                     <ion-icon name="create" class="icon"></ion-icon>
                     <span class="text" data-title="To-Do List">To-Do</span>
@@ -94,27 +94,21 @@
             <div class="col-span-2 card w-full h-full border rounded-[3rem] px-6 py-4">
                 <div class="flex w-full justify-between items-center">
                     <label class="text-white font-syne font-semibold text-2xl">Today To-Do List</label>
-                    <a href="#">
+                    <a href="/todo-list">
                         <ion-icon name="add-circle" size="large" style="color:white"></ion-icon>
                     </a>
                 </div>
                 <div class="mt-6 w-full bg-white bg-opacity-5 rounded-3xl space-y-3">
+                    @foreach ($todos as $todos)
                     <div class="flex justify-between items-center w-full px-4 py-2">
                         <div class="flex items-center w-full space-x-2">
                             <input type="radio" name="remember"
-                                class="w-5 h-5 border border-MainBlackColor accent-MainBlackColor rounded-sm outline-none cursor-pointer" />
-                            <h1 class="text-lg font-dmSans font-medium text-white truncate w-96">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</h1>
+                            class="w-5 h-5 border border-MainBlackColor accent-MainBlackColor rounded-sm outline-none cursor-pointer" />
+                            <h1 class="text-lg font-dmSans font-medium text-white truncate w-96">{{$todos->nama}}, {{$todos->description}}</h1>
                         </div>
-                        <p id="taskDate" class="text-xs text-white font-dmSans font-medium block"></p>
+                        <p class="text-lg text-end text-white font-dmSans font-medium block w-40">{{ $todos->date }}</p>
                     </div>
-                    <div class="flex justify-between items-center w-full px-4 py-2">
-                        <div class="flex items-center w-full space-x-2">
-                            <input type="radio" name="remember"
-                                class="w-5 h-5 border border-MainBlackColor accent-MainBlackColor rounded-sm outline-none cursor-pointer" />
-                            <h1 class="text-lg font-dmSans font-medium text-white truncate w-96">Lorem, ipsum dolor sit amet consectetur adipisicing elit.</h1>
-                        </div>
-                        <p id="taskDate" class="text-sm text-white font-dmSans font-medium block"></p>
-                    </div>
+                    @endforeach
                 </div>
             </div>
             <div class="card w-full border rounded-[3rem] px-6 py-4">

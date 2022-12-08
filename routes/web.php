@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\HomepageController;
 use App\Http\Controllers\PenggunaController;
+use App\Http\Controllers\TodoController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,10 +28,13 @@ Route::get('/todo', function () {
     return view('pages.homepage-todo');
 });
 
-Route::get('/to-do-list', function () {
-    return view('pages.todo-list');
-});
+// Route::get('/todo-list', function () {
+//     return view('pages.todo-list');
+// });
+Route::resource('homepage', HomepageController::class);
 
+Route::resource('todo-list', TodoController::class);
+Route::delete('todo-list/{id}', [TodoController::class], 'destroy')->name('todo-list.delete'); 
 
 Route::get('/auth', [PenggunaController::class, 'index']);
 Route::post('/auth/login', [PenggunaController::class, 'login']);

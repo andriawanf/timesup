@@ -70,7 +70,7 @@
                                 name="submit" type="submit">Login</button>
                             <h1 class="text-center font-dmSans font-medium text-base text-gray-500 ">Don't have an
                                 account?
-                                <span class="text-MainBlackColor"><a href="#">Register here!</a></span>
+                                <span class="text-MainBlackColor"><a href="/register">Register here!</a></span>
                             </h1>
                         </div>
                     </form>

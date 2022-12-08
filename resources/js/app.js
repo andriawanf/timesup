@@ -59,3 +59,18 @@ function ut() {
     document.getElementById("date").innerHTML = d.toLocaleDateString('en-US', { dateStyle: 'full', hour12: false, });
     document.getElementById("taskDate").innerHTML = d.toLocaleDateString('en-US', { dateStyle: 'full', hour12: false, });
 }
+
+// date range
+new Litepicker({
+    element: document.getElementById('datepicker'),
+    singleMode: false,
+    tooltipText: {
+        one: 'day',
+        other: 'days'
+    },
+    tooltipNumber: (totalDays) => {
+        return totalDays - 1;
+    }
+})
+
+// upload file
